@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自己封装的KPromise</title>
+</head>
+
+<body>
+  <h1>自己封装的KPromise</h1>
+</body>
+<script src="./KPromise.js"></script>
+<script>
+  // *宏任务和微任务
+  // 微任务
+  // setTimeout(() => {
+  //   console.log("settimeout");
+  // });
+  // let p = new KPromise((resolve, reject) => {
+  //   // setTimeout(() => {
+  //   resolve("resolveValue");
+  //   // })
+
+  // })
+  // 微任务
+  // p.then(res => {
+  //   console.log(res);
+  // })
+  // p.then(res => {
+  //   console.log("onResolved", res);
+  // }, err => {
+  //   console.log("onRejected", err);
+  // })
+  // p.then(res => {
+  //   console.log("111", res);
+  // })
+  // p.then(res => {
+  //   console.log("222", res);
+  // })
+
+  //  链式调用
+  // let p = new KPromise((resolve, reject) => {
+  //   resolve("success");
+  // })
+  // p.then(res => {
+  //   console.log(res);
+  //   return 111;
+  // }).then(res => {
+  //   console.log("??", res);
+  // })
+
+  // 方法catch
+  // let p = new KPromise((resolve, reject) => {
+  //   reject("错误啦");
+  // })
+
+  // p.then(res => {
+  //   console.log(res);
+  // }).catch(e => {
+  //   console.log("err", e);
+  // })
+
+
+  // all
+  let p1 = new KPromise((resolve) => {
+    resolve(111);
+  })
+  let p2 = new KPromise((resolve) => {
+    resolve(222);
+  })
+
+  Promise.all([p1, p2]).then(res => {
+    console.log(res);
+  })
+</script>
+
+</html>
